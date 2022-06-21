@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import Carlist from "../components/Carlist";
 
 export default function WikiFetch() {
   const [wiki, setWiki] = useState(null);
-
+  const [carmodel, setCarmodel] = useState("ToyotaCorolla");
   useEffect(() => {
     async function doFetch() {
       const rsp = await fetch(
-        "https://en.wikipedia.org/w/rest.php/v1/search/page?q=volkswagenPassat&limit=20",
+        `https://en.wikipedia.org/w/rest.php/v1/search/page?q=${carmodel}&limit=20`,
         {
           "Api-User-Agent":
             "MediaWiki REST API docs examples/0.1 (https://www.mediawiki.org/wiki/API_talk:REST_API)",
@@ -19,17 +20,19 @@ export default function WikiFetch() {
     async function fetchAsync() {
       try {
         let result = await doFetch();
-
         setWiki(result);
       } catch (err) {
         console.error(err.message);
       }
     }
     fetchAsync();
-  }, []);
+  }, [carmodel]);
 
   return (
-    <div className="container bg-gray-dark text-white shadow-2xl rounded-md mx-auto grid grid-flow-col p-4 space-x-3 justify-center">
+    <div className="container bg-gray-dark text-white shadow-2xl rounded-md mx-auto grid grid-fl p-4 space-x-3 justify-center">
+      <div className="col-auto">
+        <Carlist setCarmodel={setCarmodel} />
+      </div>
       {wiki && (
         <img
           src={wiki.pages[0].thumbnail.url}
@@ -38,6 +41,7 @@ export default function WikiFetch() {
         />
       )}
       <p className="col-auto"> {wiki && wiki.pages[0].excerpt}</p>
+      <p>{carmodel}</p>
     </div>
   );
 }
