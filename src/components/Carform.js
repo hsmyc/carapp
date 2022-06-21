@@ -18,31 +18,34 @@ export default function Carform() {
       .catch((error) => {
         console.error("Error writing document: ", error);
       });
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
   return (
     <div className="container justify-center">
       <form onSubmit={submitHandler}>
         <label>Brand</label>
         <input
-          className="shadow-inner p-1 m-1  bg-gray-dark text-white"
+          className="p-1 m-1 bg-gray-dark text-white drop-shadow-md"
           type="text"
           name="brand"
         />
         <label>Series</label>
         <input
-          className="shadow-inner p-1 m-1  bg-gray-dark text-white"
+          className="p-1 m-1 bg-gray-dark text-white drop-shadow-md"
           type="text"
           name="series"
         />
         <label>Year</label>
         <input
-          className="shadow-inner p-1 m-1  bg-gray-dark text-white"
+          className=" p-1 m-1  bg-gray-dark text-white drop-shadow-md"
           type="number"
           name="year"
         />
         <button
           type="submit"
-          className="rounded-xl bg-gray-dark text-white hover:border hover:border-orange hover:shadow-2xl p-2 "
+          className="rounded-xl bg-gray-dark text-white hover:border hover:border-orange drop-shadow-md p-2 "
         >
           Submit
         </button>
