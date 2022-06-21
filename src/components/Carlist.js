@@ -17,10 +17,13 @@ export default function Carlist() {
   }, []);
 
   return (
-    <div className=" p-2 m-auto mt-3 space-x-4 flex flex-wrap justify-center border-2 border-orange bg-gray font-ubuntu">
+    <div className="space-x-4 grid grid-cols-6 justify-center">
       {cars &&
         cars.map((car, index) => (
-          <div key={car.id} c>
+          <div
+            key={car.id}
+            className="border border-solid px-2 m-2 bg-gray-dark text-white col-span-1 text-center hover:border-orange hover:shadow-2xl"
+          >
             <p>{index}</p>
             <h1>{car.brand}</h1>
             <p>{car.series}</p>

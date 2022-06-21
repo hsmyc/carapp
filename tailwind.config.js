@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    container: {
+      center: true,
+    },
     screens: {
       sm: "480px",
       md: "768px",
@@ -9,6 +12,8 @@ module.exports = {
       xl: "2160px",
     },
     colors: {
+      black: "#000",
+      white: "#fff",
       blue: "#1fb6ff",
       purple: "#7e5bef",
       pink: "#ff49db",

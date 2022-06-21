@@ -27,12 +27,17 @@ export default function WikiFetch() {
     }
     fetchAsync();
   }, []);
-  {
-    wiki && console.log(wiki.pages[0]);
-  }
 
-  return <div>
-  {wiki && <img src={wiki.pages[0].thumbnail.url} alt="thumb" />}
-  <p>{wiki && wiki.pages[0].excerpt}</p>
-  </div>;
+  return (
+    <div className="container bg-gray-dark text-white shadow-2xl rounded-md mx-auto grid grid-flow-col p-4 space-x-3 justify-center">
+      {wiki && (
+        <img
+          src={wiki.pages[0].thumbnail.url}
+          alt="thumb"
+          className="col-auto"
+        />
+      )}
+      <p className="col-auto"> {wiki && wiki.pages[0].excerpt}</p>
+    </div>
+  );
 }

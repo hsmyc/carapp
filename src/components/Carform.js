@@ -20,29 +20,29 @@ export default function Carform() {
       });
   };
   return (
-    <div>
+    <div className="container justify-center">
       <form onSubmit={submitHandler}>
         <label>Brand</label>
         <input
-          className="shadow-inner p-1 m-1 border border-pink first-letter:"
+          className="shadow-inner p-1 m-1  bg-gray-dark text-white"
           type="text"
           name="brand"
         />
         <label>Series</label>
         <input
-          className="shadow-inner p-1 m-1 border border-pink"
+          className="shadow-inner p-1 m-1  bg-gray-dark text-white"
           type="text"
           name="series"
         />
         <label>Year</label>
         <input
-          className="shadow-inner p-1 m-1 border border-pink"
+          className="shadow-inner p-1 m-1  bg-gray-dark text-white"
           type="number"
           name="year"
         />
         <button
           type="submit"
-          className="rounded-xl bg-gray-light hover:border-2 hover:border-gray shadow-inner hover:shadow-xl p-2 "
+          className="rounded-xl bg-gray-dark text-white hover:border hover:border-orange hover:shadow-2xl p-2 "
         >
           Submit
         </button>
