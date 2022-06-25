@@ -23,7 +23,7 @@ export default function Carform() {
     }, 1000);
   };
   return (
-    <div className="container justify-center">
+    <div className="container">
       <form onSubmit={submitHandler}>
         <label>Brand</label>
         <input

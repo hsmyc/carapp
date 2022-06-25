@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Carlist from "../components/Carlist";
 
 export default function WikiFetch() {
+  const carInfo = useRef(null);
   const [wiki, setWiki] = useState(null);
   const [carmodel, setCarmodel] = useState("ToyotaCorolla");
   useEffect(() => {
@@ -28,20 +29,26 @@ export default function WikiFetch() {
     fetchAsync();
   }, [carmodel]);
 
+  const visibleHandler = () => {
+    carInfo.current.className =
+      "visible flex flex-row p-4 space-x-12";
+  };
+
   return (
-    <div className="container bg-gray-dark text-white shadow-2xl rounded-md mx-auto grid grid-fl p-4 space-x-3 justify-center">
+    <div className="container bg-gray-dark text-white shadow-2xl rounded-md p-4 space-x-3">
       <div className="col-auto">
-        <Carlist setCarmodel={setCarmodel} />
+        <Carlist setCarmodel={setCarmodel} visibleHandler={visibleHandler}/>
       </div>
-      {wiki && (
-        <img
-          src={wiki.pages[0].thumbnail.url}
-          alt="thumb"
-          className="col-auto"
-        />
-      )}
-      <p className="col-auto"> {wiki && wiki.pages[0].excerpt}</p>
-      <p>{carmodel}</p>
+      <div className="invisible flex flex-row p-4 space-x-12 " ref={carInfo}>
+        {wiki && (
+          <img
+            src={wiki.pages[0].thumbnail.url}
+            alt="thumb"
+            className="basis-1/2"
+          />
+        )}
+        <p className="basis-1/2"> {wiki && wiki.pages[0].excerpt}</p>
+      </div>
     </div>
   );
 }
