@@ -8,11 +8,7 @@ export default function WikiFetch() {
   useEffect(() => {
     async function doFetch() {
       const rsp = await fetch(
-        `https://en.wikipedia.org/w/rest.php/v1/search/page?q=${carmodel}&limit=20`,
-        {
-          "Api-User-Agent":
-            "MediaWiki REST API docs examples/0.1 (https://www.mediawiki.org/wiki/API_talk:REST_API)",
-        }
+        `https://en.wikipedia.org/w/rest.php/v1/search/page?q=${carmodel}&limit=20`
       );
       const data = await rsp.json();
       return data;
@@ -30,14 +26,13 @@ export default function WikiFetch() {
   }, [carmodel]);
 
   const visibleHandler = () => {
-    carInfo.current.className =
-      "visible flex flex-row p-4 space-x-12";
+    carInfo.current.className = "visible flex flex-row p-4 space-x-12";
   };
 
   return (
     <div className="container bg-gray-dark text-white shadow-2xl rounded-md p-4 space-x-3">
       <div className="col-auto">
-        <Carlist setCarmodel={setCarmodel} visibleHandler={visibleHandler}/>
+        <Carlist setCarmodel={setCarmodel} visibleHandler={visibleHandler} />
       </div>
       <div className="invisible flex flex-row p-4 space-x-12 " ref={carInfo}>
         {wiki && (
