@@ -1,6 +1,5 @@
 import Carform from "./components/Carform";
 import WikiFetch from "./components/WikiFetch";
-import WikiF from "./components/WikiF";
 
 function App() {
   return (
@@ -10,7 +9,6 @@ function App() {
       </div>
       <Carform />
       <WikiFetch />
-      <WikiF />
     </div>
   );
 }

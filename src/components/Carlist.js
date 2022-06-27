@@ -26,9 +26,9 @@ export default function Carlist({ setCarmodel, visibleHandler }) {
           >
             <button
               onClick={() => {
-                setCarmodel(car.brand + car.series);
-                setTimeout(()=>{
-                  visibleHandler()
+                setCarmodel(car.brand + "%20" + car.series);
+                setTimeout(() => {
+                  visibleHandler();
                 }, 1000);
               }}
             >
